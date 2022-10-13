@@ -85,7 +85,7 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccon' ] => [ 'cat', 'dog', 'racoon' ]
  */
 function getArrayOfStrings(arr) {
-  return arr.filter(el => typeof(el) === 'string');
+  return arr.filter(el => typeof el === 'string');
 }
 
 /**
@@ -102,7 +102,7 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-  return arr.filter(el => Boolean(el));
+  return arr.filter(Boolean);
 }
 
 /**
@@ -337,7 +337,7 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-  return arr.reduce((a, item) => a + item, 0 );
+  return arr.reduce((a, item) => a + item, 0);
 }
 
 /**
@@ -416,7 +416,7 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  */
 function sortCitiesArray(arr) {
-  return arr.sort((a, b) => {
+  return arr.sort((a, b) => { 
     if (a.country < b.country) return -1;
     if (a.country > b.country) return 1;
     if (a.city < b.city) return -1;
