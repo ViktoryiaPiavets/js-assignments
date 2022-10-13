@@ -18,7 +18,7 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
-  return value1 + value2;
+  return `${value1}${value2}`;
 }
 
 /**
@@ -242,8 +242,8 @@ function encodeToRot13(str) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(value) {
-  return Object.prototype.toString.call(value) === '[object String]'; 
+function isString(value) {  
+  return typeof value === 'string' || value instanceof String;
 }
 
 
@@ -273,8 +273,8 @@ function isString(value) {
  */
 function getCardId(value) {  
   const suits = ['♣', '♦', '♥', '♠'];
-  const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-  return [].concat.apply([], suits.map(suit => values.map(v => v + suit))).indexOf(value);
+  const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];  
+  return values.indexOf(value.slice(0, - 1)) + (values.length * suits.indexOf(value.slice(-1)));
 }
 
 module.exports = {
